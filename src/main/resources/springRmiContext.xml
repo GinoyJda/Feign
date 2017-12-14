@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="QuartzApiServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="QuartzApiService" />
+        <property name="service" ref="quartzApiService" />
+        <property name="serviceInterface" value="com.rmi.QuartzApiService" />
+        <property name="registryPort" value="9999" />
+        <property name="servicePort" value="8088" />
+    </bean>
+    <!--<bean id="quartzApiService" class="com.rmi.impl.QuartzApiServiceImpl" />-->
+
+    <bean id="testRmiServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="testRmiService" />
+        <property name="service" ref="testRmi" />
+        <property name="serviceInterface" value="com.test.RmiTest" />
+        <property name="registryPort" value="9999" />
+        <property name="servicePort" value="8088" />
+    </bean>
+
+</beans>
